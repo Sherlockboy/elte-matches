@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +47,37 @@ class DatabaseSeeder extends Seeder
         
         foreach($users as $user) {
             User::create($user);
+        }
+
+        $teams = [
+            [
+                'name' => 'FC Barcelona'
+            ],
+            [
+                'name' => 'Real Madrid'
+            ],
+            [
+                'name' => 'ElteHub'
+            ],
+            [
+                'name' => 'Manchester United'
+            ],
+            [
+                'name' => 'Liverpool'
+            ],
+            [
+                'name' => 'Juventus F.C'
+            ],
+            [
+                'name' => 'Chelsea'
+            ],
+            [
+                'name' => 'Milan'
+            ]
+        ];
+
+        foreach($teams as $team) {
+            Team::create($team);
         }
     }
 }
