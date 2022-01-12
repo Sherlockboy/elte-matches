@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -86,5 +87,28 @@ class DatabaseSeeder extends Seeder
         User::whereIn('id', [1,5])->get()->each(function($user) {
             $user->teams()->sync([2,3,5]);
         });
+
+        // Creating comments
+        $comments = [
+            [
+                'text' => 'A football team represents a way of being, a culture.',
+                'team_id' => 3,
+                'user_id' => 1
+            ],
+            [
+                'text' => 'A football team is a like a beautiful woman, when you do not tell her, she forgets she is beautiful.',
+                'team_id' => 3,
+                'user_id' => 5
+            ] ,
+            [
+                'text' => 'A good football team plays offense and defense. You have to be aggressive and disrupt.',
+                'team_id' => 3,
+                'user_id' => 2
+            ]  
+        ];
+
+        foreach($comments as $comment) {
+            Comment::create($comment);
+        }
     }
 }
