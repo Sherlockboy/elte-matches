@@ -51,14 +51,17 @@
                                 <div class="card-body">
                                     <p class="card-text fw-bold">{{ $team->name }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        @if (auth()->user()->is_admin)
-                                            <div class="btn-group">
-                                                <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
-                                                <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                            </div>
-                                        @else
+                                        @auth
+                                            @if (auth()->user()->is_admin)
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                                </div>
+                                            @endif
+                                        @endauth
+                                        @guest
                                             <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
-                                        @endif
+                                        @endguest
                                         <a href="#comments" class="text-muted fw-normal">Comments:
                                             {{ $team->comments_count }}</a>
                                     </div>
@@ -79,7 +82,7 @@
                                         <div class="fw-bold">{{ $game->host_team->name }}</div>
                                         <div
                                             class="px-2 py-1
-                                        @if($game->is_draw())
+                                        @if ($game->is_draw())
                                             badge bg-warning
                                         @elseif ($game->is_host_won())
                                             badge bg-success
@@ -92,7 +95,7 @@
                                         <div class="fw-bold">{{ $game->guest_team->name }}</div>
                                         <div
                                             class="px-2 py-1
-                                        @if($game->is_draw())
+                                        @if ($game->is_draw())
                                             badge bg-warning
                                         @elseif ($game->is_guest_won())
                                             badge bg-success
