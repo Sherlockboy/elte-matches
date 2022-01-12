@@ -27,24 +27,24 @@ class Team extends Model
 
     public function comments(): HasMany
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->latest();
     }
-    
+
     public function host_games(): HasMany
     {
-        return $this->hasMany(Game::class, 'id', 'host_team_id');
+        return $this->hasMany(Game::class, 'host_team_id', 'id')->latest();
     }
 
     public function guest_games(): HasMany
     {
-        return $this->hasMany(Game::class, 'id', 'host_team_id');
+        return $this->hasMany(Game::class, 'guest_team_id', 'id')->latest();
     }
 
     /**
      * @return relationship
      * Eager loading does not work this function,
      * instead you can use ->with('host_games', 'guest_games')
-    */
+     */
     public function games(): Collection
     {
         return $this->host_games->merge($this->guest_games);

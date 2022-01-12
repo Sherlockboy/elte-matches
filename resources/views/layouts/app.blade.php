@@ -23,7 +23,7 @@
     <div id="app">
         @includeIf('components.navbar')
 
-        <main class="py-4">
+        <main class="py-4 col-lg-8 mx-auto p-3 py-md-5">
             @yield('content')
         </main>
     </div>
