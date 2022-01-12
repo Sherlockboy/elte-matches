@@ -19,7 +19,7 @@ class Game extends Model
 
     public function guest_team(): BelongsTo
     {
-        return $this->belongsTo(Team::class, 'host_team_id');
+        return $this->belongsTo(Team::class, 'guest_team_id');
     }
 
     public function host_score(): int
