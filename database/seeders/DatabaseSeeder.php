@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Creating users
         $users = [
             [
                 'name' => 'Elte-Stadium Admin',
@@ -49,6 +50,7 @@ class DatabaseSeeder extends Seeder
             User::create($user);
         }
 
+        // Creating teams
         $teams = [
             [
                 'name' => 'FC Barcelona'
@@ -79,5 +81,10 @@ class DatabaseSeeder extends Seeder
         foreach($teams as $team) {
             Team::create($team);
         }
+
+        // Creating favorite teams
+        User::whereIn('id', [1,5])->get()->each(function($user) {
+            $user->teams()->sync([2,3,5]);
+        });
     }
 }
