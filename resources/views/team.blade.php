@@ -34,7 +34,7 @@
                         alert-danger
                     @endif mb-2"
                         role="alert">
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center position-relative">
                             <div class="w-50 text-end me-5">
                                 <div>{{ $team->name }}</div>
                                 <div class="fw-bold">{{ $game->host_score() }}</div>
@@ -43,6 +43,14 @@
                                 <div>{{ $game->guest_team->name }}</div>
                                 <div class="fw-bold">{{ $game->guest_score() }}</div>
                             </div>
+                            @auth
+                                @if (auth()->user()->is_admin)
+                                    <div class="position-absolute end-0">
+                                        <a
+                                            href="{{ route('game.edit', ['team_id' => $team->id, 'game_id' => $game->id]) }}">edit</a>
+                                    </div>
+                                @endif
+                            @endauth
                         </div>
                     </div>
                 @endforeach
@@ -63,7 +71,7 @@
                         alert-danger
                     @endif mb-2"
                         role="alert">
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center position-relative">
                             <div class="w-50 text-end me-5">
                                 <div>{{ $game->host_team->name }}</div>
                                 <div class="fw-bold">{{ $game->host_score() }}</div>
@@ -72,6 +80,14 @@
                                 <div>{{ $team->name }}</div>
                                 <div class="fw-bold">{{ $game->guest_score() }}</div>
                             </div>
+                            @auth
+                                @if (auth()->user()->is_admin)
+                                    <div class="position-absolute end-0">
+                                        <a
+                                            href="{{ route('game.edit', ['team_id' => $team->id, 'game_id' => $game->id]) }}">edit</a>
+                                    </div>
+                                @endif
+                            @endauth
                         </div>
                     </div>
                 @endforeach

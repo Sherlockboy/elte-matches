@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    
+    Route::get('/team/{team_id}/game/{game_id}/edit', [AdminController::class, 'edit_game'])->name('game.edit');
+    Route::post('/game/{id}/update', [AdminController::class, 'update_game'])->name('game.update');
 });
