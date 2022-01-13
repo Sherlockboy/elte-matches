@@ -48,4 +48,11 @@ class HomeController extends Controller
 
         return back()->with('success', 'Comment successfully created!');
     }
+
+    public function results()
+    {
+        return view('results', [
+            'games' => Game::with('host_team', 'guest_team')->get()
+        ]);
+    }
 }

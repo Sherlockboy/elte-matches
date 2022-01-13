@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/results', [HomeController::class, 'results'])->name('results');
 Route::get('/team/{id}', [HomeController::class, 'team'])->name('team');
 Route::post('/submit', [HomeController::class, 'submit'])->name('submit');
 

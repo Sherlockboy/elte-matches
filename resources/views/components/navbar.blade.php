@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('index') }}">{{ __('Home') }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('results') }}">{{ __('Reults') }}</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

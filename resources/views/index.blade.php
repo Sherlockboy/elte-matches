@@ -8,7 +8,7 @@
             more. Enjoy using it!</p>
 
         <div class="mb-5">
-            <a href="#" class="btn btn-primary btn-lg px-4">Results</a>
+            <a href="{{ route('results') }}" class="btn btn-primary btn-lg px-4">Results</a>
         </div>
     </section>
     <section>
@@ -26,18 +26,7 @@
                         <div class="card-body">
                             <p class="card-text fw-bold">{{ $team->name }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                @auth
-                                    @if (auth()->user()->is_admin)
-                                        <div class="btn-group">
-                                            <a href="{{ route('team', $team->id) }}"
-                                                class="btn btn-sm btn-outline-secondary">View</a>
-                                            <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                        </div>
-                                    @endif
-                                @endauth
-                                @guest
-                                    <a href="{{ route('team', $team->id) }}" class="btn btn-sm btn-outline-secondary">View</a>
-                                @endguest
+                                <a href="{{ route('team', $team->id) }}" class="btn btn-sm btn-outline-secondary">View</a>
                                 <a href="{{ route('team', $team->id) }}#comments" class="btn btn-sm btn-primary">
                                     Comments <span class="badge bg-secondary">{{ $team->comments_count }}</span>
                                 </a>
@@ -81,6 +70,9 @@
                             @endif">
                                     {{ $game->guest_score() }}</div>
                             </div>
+                        </div>
+                        <div class="w-100 text-muted text-center mt-1">
+                            {{ $game->created_at->format('H:i') . ' | ' . $game->created_at->format('d-m-Y') }}
                         </div>
                     </div>
                 </div>
