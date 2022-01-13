@@ -132,8 +132,16 @@
                         <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                             <div class="d-flex justify-content-between">
                                 <strong class="text-gray-dark">@ {{ $comment->user->name }}</strong>
-                                <span>{{ $comment->created_at->format('Y-m-d') }} |
-                                    {{ $comment->created_at->format('H:i') }}</span>
+                                <div>
+                                    <span>{{ $comment->created_at->format('Y-m-d') }} |
+                                        {{ $comment->created_at->format('H:i') }}</span>
+                                    @auth
+                                        @if (auth()->user()->is_admin)
+                                            <span>&nbsp;|&nbsp;</span>
+                                            <a href="{{ route('comment.delete', $comment->id) }}">delete</a>
+                                        @endif
+                                    @endauth
+                                </div>
                             </div>
                             <span class="d-block">{{ $comment->text }}</span>
                         </div>
