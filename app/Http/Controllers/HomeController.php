@@ -55,4 +55,18 @@ class HomeController extends Controller
             'games' => Game::with('host_team', 'guest_team')->get()
         ]);
     }
+
+    public function mark_favorite($id)
+    {
+        auth()->user()->teams()->attach($id);
+
+        return back()->with('success', 'Team added to favorites!');
+    }
+
+    public function un_mark_favorite($id)
+    {
+        auth()->user()->teams()->detach($id);
+
+        return back()->with('success', 'Team removed from favorites!');
+    }
 }

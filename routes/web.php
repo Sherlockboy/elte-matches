@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('/mark-favorite/{id}', [HomeController::class, 'mark_favorite'])->name('mark-favorite');
+    Route::get('/un-mark-favorite/{id}', [HomeController::class, 'un_mark_favorite'])->name('un-mark-favorite');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

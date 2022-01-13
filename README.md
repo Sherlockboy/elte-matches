@@ -1,5 +1,21 @@
 # Mukhammadyusuf Soliev
 # ZVPLVJ
+
+### Live demo
+http://elte-match-board-zvplvj.herokuapp.com/
+
+### Local installation
+```
+Inside project folder run following commands:
+1. composer install
+2. php artisan key:generate
+3. php artisan migrate --seed
+4. php artisan serve
+
+Then open browser:
+http://localhost:8000/
+```
+
 Web-programming - PHP home assignment
 This solution was submitted by the student named above for a Web-programming assignment.
 
@@ -44,6 +60,6 @@ The worst result of a disciplinary offence can be the expulsion of the student.
 ### Extra tasks (plus 5 points)
 
 [ ] Listing page: Show the results of the next 5 matches with AJAX (2,5 pont)
-[ ] Team details: Mark as favorite (1 point)
-[ ] Listing page: List only the matches of the favorite teams (1 point)
-[ ] Forms: error messages appear next to the form fields on forms (0.5 points)
+[x] Team details: Mark as favorite (1 point)
+[x] Listing page: List only the matches of the favorite teams (1 point)
+[X] Forms: error messages appear next to the form fields on forms (0.5 points)

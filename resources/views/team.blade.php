@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @includeIf('components.alerts')
     <section>
         <div class="card mb-3">
             <div class="row g-0">
@@ -14,6 +15,9 @@
                         <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At repellendus
                             odio ab adipisci sapiente inventore perspiciatis ut. Quam consequatur neque, laudantium nemo
                             adipisci sint! Architecto quia porro neque accusantium officiis!</p>
+                        <a href="{{ route('mark-favorite', $team->id) }}" class="btn btn-outline-primary my-2">
+                            Add to favorites
+                        </a>
                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
@@ -95,7 +99,6 @@
         </div>
     </section>
     <section id="comments">
-        @includeIf('components.alerts')
         <h3 class="mb-2">Comments</h3>
         <div class="card mb-3">
             <div class="card-body">

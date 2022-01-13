@@ -31,6 +31,9 @@
                                     Comments <span class="badge bg-secondary">{{ $team->comments_count }}</span>
                                 </a>
                             </div>
+                            <a href="{{ route('mark-favorite', $team->id) }}" class="btn btn-outline-primary w-100 mt-2">
+                                Add to favorites
+                            </a>
                         </div>
                     </div>
                 </div>
