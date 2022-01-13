@@ -3,6 +3,15 @@
 
 ### Live demo
 http://elte-match-board-zvplvj.herokuapp.com/
+```
+Admin details:
+email: admin@eltestadium.hu
+password: admin
+
+User details:
+email: soliev@eltestadium.hu
+password: soliev
+```
 
 ### Local installation
 ```
