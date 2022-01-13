@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @includeIf('components.alerts')
     <section>
         <h1>ELTE Football Matches Board</h1>
         <p class="fs-5 col-md-8">You can find match resultes, scheduled matches, comments on teams and many
